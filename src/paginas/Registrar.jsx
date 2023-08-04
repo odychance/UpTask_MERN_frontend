@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import Alerta from '../components/Alerta'
 
@@ -12,8 +12,6 @@ const Registrar = () => {
   const [ password, setPassword ] = useState('')
   const [ repetirPassword, setRepetirPassword ] = useState('')
   const [ alerta, setAlerta] = useState({})
-
-  const navigate = useNavigate()
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -56,9 +54,6 @@ const Registrar = () => {
       setEmail('')
       setPassword('')
       setRepetirPassword('')
-
-      navigate('/')
-
     } catch (error) {
       setAlerta({
         msg: error.response.data.msg,
